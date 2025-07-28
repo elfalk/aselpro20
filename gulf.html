@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asel Pro - خدمات تأشيرات الخليج والشرق الأوسط</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f3057;
+            --secondary: #00587a;
+            --accent: #008891;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #00b7a8;
+            --coral: #a33205;
+            --paper: #f0f5ff;
+            --document: #e6f4f8;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #dff7e4;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), #0a2540);
+            color: white;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            background: var(--success);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-15deg);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-icon i {
+            color: white;
+            font-size: 1.8rem;
+            animation: fly 3s ease-in-out infinite;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover {
+            color: white;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--success);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background: var(--success);
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 183, 168, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            background: #00c9b8;
+            box-shadow: 0 6px 20px rgba(0, 183, 168, 0.4);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(15, 48, 87, 0.9), rgba(10, 37, 64, 0.95)), url('https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+        }
+        
+        .services-section {
+            padding: 5rem 5%;
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--success);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            font-size: 1.3rem;
+            color: #555;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-item {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-header {
+            background: var(--success);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .service-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .service-content {
+            padding: 2rem;
+        }
+        
+        .service-content ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .service-content li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+        
+        .service-content li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 15px;
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+        }
+        
+        .price-tag {
+            display: inline-block;
+            background: rgba(0, 183, 168, 0.1);
+            color: var(--success);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        
+        .contract-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .contract-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--success);
+        }
+        
+        .contract-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contract-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contract-card .flag {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(15, 48, 87, 0.1);
+            color: var(--primary);
+        }
+        
+        .testimonials-section {
+            padding: 5rem 5%;
+            background: var(--paper);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(0, 183, 168, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            margin-top: 2rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--success);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .about-section {
+            padding: 5rem 5%;
+            background: linear-gradient(to bottom, #f0f7fa, #e6f4f8);
+            position: relative;
+        }
+        
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .about-content h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .cert-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .cert-badge {
+            width: 120px;
+            height: 120px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 8px 20px rgba(0, 183, 168, 0.3);
+        }
+        
+        .cert-badge i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #0a2540, #071a30);
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-about {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+        
+        .footer-logo .logo-icon {
+            width: 45px;
+            height: 45px;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--success);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--success);
+            transform: translateX(5px);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            color: var(--success);
+            font-size: 1.2rem;
+            margin-top: 0.3rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .order-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 1.5rem;
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+        
+        .order-button:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        @keyframes fly {
+            0%, 100% {
+                transform: translateY(0) rotate(-15deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(-20deg);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.3rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .cert-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+        }.gaza-banner {
+    background-color: #008891;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-family: 'Tajawal', sans-serif;
+}.enemy-word {
+    color: #c0392b; /* لون أحمر عدواني */
+    font-weight: bold;
+    text-decoration: underline
+    transition all 0.3s ease;
+}
+
+.enemy-word:hover {
+    color: #e74c3c; /* لون أفتح عند المرور */
+    text-shadow: 0 0 5px red;
+    transform: scale(1.1);
+    cursor: not-allowed;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي والتنقل -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-dove"></i>
+                </div>
+                Asel Pro
+            </a>
+            
+            <nav class="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="schengen.html">تاشيرات الشنغن </a>
+                <a href="papers.html">الاوراق</a>
+                <a href="#testimonials">آراء العملاء</a>
+                <a href="#about">نبذة عنا</a>
+            </nav>
+            
+          <a href="https://wa.me/201018516175" target="_blank" class="cta-button">اتصل الآن</a>
+
+        </div>
+    </header>
+
+    <!-- قسم البطل -->
+    <section class="hero">
+        <h1>خدمات تأشيرات الخليج والشرق الأوسط</h1>
+        <p>تجهيز وتقديم ملفات التأشيرات باحترافية لدول الخليج والشرق الأوسط مع ضمان أعلى معايير الجودة</p>
+    </section>
+    <div class="gaza-banner">
+    <p>
+         نحن متضامنون مع غزة... ولن نقدم أي خدمة لأي كيان <span class="enemy-word">صهيوني</span>.
+ أو داعم له</p>
+</div><link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700&display=swap" rel="stylesheet">
+
+
+
+    <!-- قسم خدمات التأشيرات -->
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <h2>خدمات تأشيرات الخليج والشرق الأوسط</h2>
+            <p>نقدم خدمات متكاملة لتجهيز وتقديم ملفات التأشيرات باحترافية وسرعة فائقة</p>
+        </div>
+        
+        <div class="services-container">
+            <!-- خدمة السعودية -->
+            <div class="service-item">
+                <div class="service-header">
+                    <h3>تأشيرات السعودية</h3>
+                    <p>خدمات احترافية للحصول على تأشيرات المملكة العربية السعودية</p>
+                </div>
+                <div class="service-content">
+                    <div class="price-tag">بدءاً من 3500 ريال للاقامات الحره </div>
+                    <ul>
+                        <li>تأشيرة حرة لمدة 3 أشهر</li>
+                        <li>تأشيرة حرة لمدة 15 شهر</li>
+                        <li>إقامات حرة لمختلف المهن</li>
+                        <li>نقل كفاله بنسبة سنوي </li>
+                        <li>تأشيرات عمل بمختلف القطاعات</li>
+                    </ul>
+                    <a href="https://wa.me/201018516175" class="order-button" target="_blank">اطلب الخدمة الآن</a>
+
+                </div>
+            </div>
+            
+            <!-- خدمة الإمارات -->
+            <div class="service-item">
+                <div class="service-header">
+                    <h3>تأشيرات الإمارات</h3>
+                    <p>خدمات تأشيرات دبي وأبوظبي والمدن الإماراتية</p>
+                </div>
+                <div class="service-content">
+                    <div class="price-tag">بدءاً من 2200 جنيه</div>
+                    <ul>
+                        <li>تأشيرات سياحية لمدة 30 يوم</li>
+                        <li>تأشيرات عمل لمختلف القطاعات</li>
+                        <li>تأشيرات إقامة حرة</li>
+                        <li>تجديد وتعديل التأشيرات</li>
+                        <li>استخراج تصاريح العمل</li>
+                    </ul>
+                    <a href="https://wa.me/201018516175" class="order-button" target="_blank">اطلب الخدمة الآن</a>
+
+                </div>
+            </div>
+            
+            <!-- خدمة دول الخليج الأخرى -->
+            <div class="service-item">
+                <div class="service-header">
+                    <h3>دول الخليج الأخرى</h3>
+                    <p>تأشيرات قطر، الكويت، عُمان، البحرين</p>
+                </div>
+                <div class="service-content">
+                    <div class="price-tag">بدءاً من 2000 جنيه</div>
+                    <ul>
+                        <li>تأشيرات عمل لقطر</li>
+                        <li>تأشيرات زيارة للكويت</li>
+                        <li>تأشيرات سياحية لعُمان</li>
+                        <li>تأشيرات عمل للبحرين</li>
+                        <li>تجديد وتعديل التأشيرات</li>
+                    </ul>
+                   <a href="https://wa.me/201018516175" class="order-button" target="_blank">اطلب الخدمة الآن</a>
+
+                </div>
+            </div>
+            
+            <!-- خدمة الشرق الأوسط -->
+            <div class="service-item">
+                <div class="service-header">
+                    <h3>دول الشرق الأوسط</h3>
+                    <p>تأشيرات المغرب، الأردن، لبنان، العراق، تركيا</p>
+                </div>
+                <div class="service-content">
+                    <div class="price-tag">بدءاً من 1800 جنيه</div>
+                    <ul>
+                        <li>تأشيرات سياحية للمغرب</li>
+                        <li>تأشيرات عمل للأردن</li>
+                        <li>تأشيرات زيارة للبنان</li>
+                        <li>تأشيرات عمل للعراق</li>
+                        <li>تأشيرات سياحية وعمل لتركيا</li>
+                    </ul>
+                   <a href="https://wa.me/201018516175" class="order-button" target="_blank">اطلب الخدمة الآن</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم عقود العمل -->
+    <section class="services-section" id="contracts" style="background-color: var(--document);">
+        <div class="section-header">
+            <h2>عقود العمل للخليج</h2>
+            <p>أهم 10 مهن مطلوبة في دول الخليج العربي</p>
+        </div>
+        
+        <div class="contract-grid">
+            <div class="contract-card">
+                <h3><span class="flag"><i class="fas fa-building"></i></span> مهندس مدني</h3>
+                <p>السعودية، الإمارات، قطر</p>
+                <p>رواتب تبدأ من 5000 ريال سعودي</p>
+            </div>
+            
+            <div class="contract-card">
+                <h3><span class="flag"><i class="fas fa-user-md"></i></span> طبيب أخصائي</h3>
+                <p>الكويت، السعودية، البحرين</p>
+                <p>رواتب تبدأ من 5200 ريال سعودي</p>
+            </div>
+            
+            <div class="contract-card">
+                <h3><span class="flag"><i class="fas fa-laptop-code"></i></span> مبرمج ومطور ويب</h3>
+                <p>الإمارات، السعودية، قطر</p>
+                <p>رواتب تبدأ من 5500 ريال سعودي</p>
+            </div>
+            
+            <div class="contract-card">
+                <h3><span class="flag"><i class="fas fa-chalkboard-teacher"></i></span>حلاق برفشنال</h3>
+                <p>قطر، عُمان، الإمارات</p>
+                <p>رواتب تبدأ من 2800 ريال سعودي</p>
+            </div>
+            
+            <div class="contract-card">
+                <h3><span class="flag"><i class="fas fa-utensils"></i></span> شيف طباخ</h3>
+                <p>الإمارات، السعودية، عمان</p>
+                <p>رواتب تبدأ من 3500 ريال سعودي</p>
+            </div>
+            
+            <div class="contract-card">
+                <h3><span class="flag"><i class="fas fa-car"></i></span> سائق خاص</h3>
+                <p>قطر، الإمارات،السعوديه </p>
+                <p>رواتب تبدأ من 3500 ريال سعودي</p>
+            </div>
+            
+            <div class="contract-card">
+                <h3><span class="flag"><i class="fas fa-hands-helping"></i></span> مساعد إداري</h3>
+                <p>السعودية، الإمارات، عمان</p>
+                <p>رواتب تبدأ من 3000 ريال سعودي</p>
+            </div>
+            
+            <div class="contract-card">
+                <h3><span class="flag"><i class="fas fa-bolt"></i></span> فني كهرباء</h3>
+                <p>السعودية، الامارات, عُمان</p>
+                <p>رواتب تبدأ من 3100 ريال سعودي</p>
+            </div>
+            
+            <div class="contract-card">
+                <h3><span class="flag"><i class="fas fa-hotel"></i></span> مدير فندق</h3>
+                <p>الإمارات، السعودية، البحرين</p>
+                <p>رواتب تبدأ من 5000 ريال سعودي</p>
+            </div>
+            
+            <div class="contract-card">
+                <h3><span class="flag"><i class="fas fa-hard-hat"></i></span> فني تكييف وتبريد</h3>
+                <p>قطر، الإمارات، الاردن</p>
+                <p>رواتب تبدأ من 3200 ريال سعودي</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+    <a href="https://wa.me/201018516175?text=مرحبًا،%20أرغب%20في%20الاستفسار%20عن%20خدمة%20عقد%20العمل%20من%20موقع%20AselPro" 
+       class="cta-button" target="_blank">
+        اطلب عقد عمل الآن
+    </a>
+</div>
+
+    </section>
+
+    <!-- قسم آراء العملاء -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-header">
+            <h2>آراء عملائنا</h2>
+            <p>ما يقوله عملاؤنا عن خدماتنا</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>لقد حصلت على تأشيرة السعودية خلال أسبوع فقط! الخدمة كانت احترافية وسريعة، فريق العمل متعاون ومحترف. أنصح الجميع بالتعامل مع Asel Pro.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">م</div>
+                    <div>
+                        <h4>محمد أحمد</h4>
+                        <p>مهندس مدني - السعودية</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>تعاملت مع Asel Pro للحصول على عقد عمل في الإمارات، كانت تجربة رائعة. الإجراءات سريعة والمستندات جاهزة في الوقت المحدد. شكراً لكم!</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">س</div>
+                    <div>
+                        <h4>سارة محمود</h4>
+                        <p>مديرة فندق - الإمارات</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>أفضل مكتب تأشيرات تعاملت معه! حصلت على إقامة حرة في قطر خلال 10 أيام فقط. الخدمة ممتازة والأسعار مناسبة. أوصي بهم بشدة.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">خ</div>
+                    <div>
+                        <h4>خالد عبد الله</h4>
+                        <p>طبيب أخصائي - قطر</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم نبذة عنا -->
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h2>من نحن</h2>
+            <p>شركة Asel Pro هي شركة تسويق بنقية تعمل مع أفضل مكاتب السفر المرخصة والمعتمدة في مصر ودول الخليج. مهمتنا هي تقديم خدمات تأشيرات بجودة عالية وبأسعار تنافسية.</p>
+            
+            <p>نحن نضمن لعملائنا الحصول على أفضل الخدمات من خلال:</p>
+            <ul>
+                <li>شراكات مع مكاتب معتمدة ومرخصة</li>
+                <li>فريق محترف ذو خبرة واسعة في مجال التأشيرات</li>
+                <li>خدمة سريعة ودقيقة</li>
+                <li>أسعار تنافسية وشفافة</li>
+                <li>دعم متكامل قبل وبعد الحصول على التأشيرة</li>
+            </ul>
+            
+            <p>نفتخر بأننا قمنا بمساعدة أكثر من 5000 عميل في الحصول على تأشيراتهم خلال السنوات الخمس الماضية. ثقة عملائنا هي شهادتنا الحقيقية.</p>
+            
+            <div class="cert-badges">
+                <div class="cert-badge">
+                    <i class="fas fa-award"></i>
+                    <span>مرخصة</span>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-certificate"></i>
+                    <span>معتمدة</span>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-handshake"></i>
+                    <span>شراكات موثوقة</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-dove"></i>
+                    </div>
+                    Asel Pro
+                </div>
+                <p>نقدم خدمات احترافية للحصول على التأشيرات بكل سهولة ويسر، مع ضمان أعلى مستويات الجودة والاحترافية في التعامل.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#services">خدمات التأشيرات</a></li>
+                    <li><a href="#contracts">عقود العمل</a></li>
+                    <li><a href="#testimonials">آراء العملاء</a></li>
+                    <li><a href="#about">نبذة عنا</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>خدماتنا</h3>
+                <ul>
+                    <li><a href="#">تأشيرات السعودية</a></li>
+                    <li><a href="#">تأشيرات الإمارات</a></li>
+                    <li><a href="#">تأشيرات دول الخليج</a></li>
+                    <li><a href="#">تأشيرات الشرق الأوسط</a></li>
+                    <li><a href="#">عقود العمل</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>اتصل بنا</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>القاهرة، الجمهورية العربية المصرية</div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>+201018516175</div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>Yossef@aselpro.com</div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>الأحد - الخميس: 10 صباحاً - 5 مساءً</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>جميع الحقوق محفوظة © 2023 Asel Pro</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // إضافة تأثير التمرير السلس
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // إضافة تأثيرات للبطاقات عند التمرير
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // تطبيق التأثير على البطاقات
+            document.querySelectorAll('.service-item, .contract-card, .testimonial-card').forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // تغيير لون الشريط العلوي عند التمرير
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(15, 48, 87, 0.95)';
+                    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
+                } else {
+                    header.style.background = 'linear-gradient(135deg, var(--primary), #0a2540)';
+                    header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات تأشيرات السفارات - تجهيز ملفات السفارات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f3057;
+            --secondary: #00587a;
+            --accent: #008891;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #00b7a8;
+            --coral: #a33205;
+            --paper: #f0f5ff;
+            --document: #e6f4f8;
+            --europe: #4361ee;
+            --gulf: #00b4d8;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #dff7e4;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), #0a2540);
+            color: white;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            background: var(--success);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-15deg);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-icon i {
+            color: white;
+            font-size: 1.8rem;
+            animation: fly 3s ease-in-out infinite;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover {
+            color: white;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--success);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background: var(--success);
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 183, 168, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            background: #00c9b8;
+            box-shadow: 0 6px 20px rgba(0, 183, 168, 0.4);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(15, 48, 87, 0.9), rgba(10, 37, 64, 0.95)), url('https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+        }
+        
+        .services-section {
+            padding: 5rem 5%;
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--success);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            font-size: 1.3rem;
+            color: #555;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-item {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-header {
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .schengen-header {
+            background: var(--europe);
+        }
+        
+        .gulf-header {
+            background: var(--gulf);
+        }
+        
+        .additional-header {
+            background: var(--success);
+        }
+        
+        .service-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .service-content {
+            padding: 2rem;
+        }
+        
+        .service-content ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .service-content li {
+            padding: 0.8rem 0;
+            position: relative;
+            padding-right: 1.8rem;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .service-content li:last-child {
+            border-bottom: none;
+        }
+        
+        .service-content li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 18px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        
+        .schengen-list li::before {
+            background: var(--europe);
+        }
+        
+        .gulf-list li::before {
+            background: var(--gulf);
+        }
+        
+        .additional-list li::before {
+            background: var(--success);
+        }
+        
+        .service-icon {
+            background: rgba(0,0,0,0.05);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .schengen-icon {
+            color: var(--europe);
+        }
+        
+        .gulf-icon {
+            color: var(--gulf);
+        }
+        
+        .additional-icon {
+            color: var(--success);
+        }
+        
+        .service-text {
+            flex: 1;
+        }
+        
+        .sub-service {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+            padding-right: 10px;
+        }
+        
+        .country-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        
+        .saudi-badge {
+            background: rgba(0, 87, 50, 0.1);
+            color: #005732;
+            border: 1px solid #005732;
+        }
+        
+        .uae-badge {
+            background: rgba(0, 84, 147, 0.1);
+            color: #005493;
+            border: 1px solid #005493;
+        }
+        
+        .order-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 1.5rem;
+            background: var(--europe);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+        
+        .gulf-button {
+            background: var(--gulf);
+        }
+        
+        .additional-button {
+            background: var(--success);
+        }
+        
+        .order-button:hover {
+            background: #5a6ef1;
+            transform: translateY(-3px);
+        }
+        
+        .gulf-button:hover {
+            background: #00c1e0;
+        }
+        
+        .additional-button:hover {
+            background: #00c9b8;
+        }
+        
+        .testimonials-section {
+            padding: 5rem 5%;
+            background: var(--paper);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(67, 97, 238, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            margin-top: 2rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--europe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .gulf-avatar {
+            background: var(--gulf);
+        }
+        
+        .about-section {
+            padding: 5rem 5%;
+            background: linear-gradient(to bottom, #f0f7fa, #e6f4f8);
+            position: relative;
+        }
+        
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .about-content h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .cert-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .cert-badge {
+            width: 120px;
+            height: 120px;
+            background: var(--europe);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
+        }
+        
+        .cert-badge i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #0a2540, #071a30);
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-about {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+        
+        .footer-logo .logo-icon {
+            width: 45px;
+            height: 45px;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--success);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--success);
+            transform: translateX(5px);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            color: var(--success);
+            font-size: 1.2rem;
+            margin-top: 0.3rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        @keyframes fly {
+            0%, 100% {
+                transform: translateY(0) rotate(-15deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(-20deg);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.3rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .cert-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي والتنقل -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-passport"></i>
+                </div>
+                خدمات السفارات
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#">الرئيسية</a>
+                <a href="#services">خدماتنا</a>
+                <a href="#testimonials">آراء العملاء</a>
+                <a href="#about">نبذة عنا</a>
+            </nav>
+            
+            <a href="#contact" class="cta-button">اتصل الآن</a>
+        </div>
+    </header>
+
+    <!-- قسم البطل -->
+    <section class="hero">
+        <h1>خدمات تجهيز أوراق السفارات</h1>
+        <p>خدمات متكاملة لتجهيز وتقديم ملفات السفارات باحترافية وسرعة فائقة مع ضمان أعلى معايير الجودة</p>
+    </section>
+
+    <!-- قسم خدمات السفارات -->
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <h2>خدماتنا المتكاملة</h2>
+            <p>نقدم مجموعة واسعة من الخدمات لتسهيل إجراءات السفر والتأشيرات</p>
+        </div>
+        
+        <div class="services-container">
+            <!-- خدمات تأشيرات الشنغن -->
+            <div class="service-item">
+                <div class="service-header schengen-header">
+                    <h3><i class="fas fa-globe-europe"></i> خدمات تأشيرات الشنغن</h3>
+                </div>
+                <div class="service-content">
+                    <ul class="schengen-list">
+                        <li>
+                            <div class="service-icon schengen-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <div class="service-text">
+                                جهيز أوراق السفارة
+                                <div class="sub-service">تجهيز كامل للمستندات المطلوبة بدقة</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon schengen-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <div class="service-text">
+                                استخراج كشف حساب بنكي مناسب للتأشيرة
+                                <div class="sub-service">تحضير كشف حساب يلبي متطلبات السفارة</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon schengen-icon">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                            <div class="service-text">
+                                إعداد خطاب HR Letter احترافي ومترجم
+                                <div class="sub-service">خطاب عمل رسمي بترجمة معتمدة</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon schengen-icon">
+                                <i class="fas fa-folder-open"></i>
+                            </div>
+                            <div class="service-text">
+                                تنظيم ملف السفارة بالترتيب الرسمي المطلوب
+                                <div class="sub-service">ترتيب المستندات حسب متطلبات السفارة</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon schengen-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="service-text">
+                                ترجمة وتصديق المستندات
+                                <div class="sub-service">ترجمة معتمدة وتصديق رسمي</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon schengen-icon">
+                                <i class="fas fa-print"></i>
+                            </div>
+                            <div class="service-text">
+                                طباعة وتجهيز المستندات المطلوبة
+                                <div class="sub-service">طباعة احترافية لجميع المستندات</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon schengen-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="service-text">
+                                فيزا دراسية أو علاجية أو استضافة
+                                <div class="sub-service">تأشيرات متخصصة باحترافية</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#" class="order-button">اطلب الخدمة الآن</a>
+                </div>
+            </div>
+            
+            <!-- خدمات التأشيرات الخليجية -->
+            <div class="service-item">
+                <div class="service-header gulf-header">
+                    <h3><i class="fas fa-mosque"></i> خدمات التأشيرات الخليجية</h3>
+                </div>
+                <div class="service-content">
+                    <ul class="gulf-list">
+                        <li>
+                            <div class="service-icon gulf-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="service-text">
+                                الاعتماد المهني 
+                                <span class="country-badge saudi-badge">السعودية</span>
+                                <div class="sub-service">اعتماد المؤهلات والخبرات</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon gulf-icon">
+                                <i class="fas fa-stamp"></i>
+                            </div>
+                            <div class="service-text">
+                                توثيق الشهادات من الخارجية والقنصلية السعودية
+                                <span class="country-badge saudi-badge">السعودية</span>
+                                <div class="sub-service">تصديق رسمي للمستندات</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon gulf-icon">
+                                <i class="fas fa-folder"></i>
+                            </div>
+                            <div class="service-text">
+                                إعداد ملف المصادقة
+                                <span class="country-badge saudi-badge">السعودية</span>
+                                <div class="sub-service">تحضير كامل لملف المصادقة</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon gulf-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="service-text">
+                                تجهيز أوراق تأشيرة العمل السعودية
+                                <span class="country-badge saudi-badge">السعودية</span>
+                                <div class="sub-service">تجهيز متكامل لمتطلبات التأشيرة</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon gulf-icon">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <div class="service-text">
+                                تسجيل بياناتك في منصة “موعد” أو “مساند”
+                                <span class="country-badge saudi-badge">السعودية</span>
+                                <div class="sub-service">مساعدة في التسجيل الرسمي</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon gulf-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                            <div class="service-text">
+                                حجز موعد الكشف الطبي
+                                <span class="country-badge saudi-badge">السعودية</span>
+                                <div class="sub-service">ترتيب الكشف الطبي المطلوب</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon gulf-icon">
+                                <i class="fas fa-file-export"></i>
+                            </div>
+                            <div class="service-text">
+                                التقديم على التأشيرة الإلكترونية
+                                <span class="country-badge saudi-badge">السعودية</span>
+                                <div class="sub-service">تقديم احترافي عبر المنصات الرسمية</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon gulf-icon">
+                                <i class="fas fa-umbrella-beach"></i>
+                            </div>
+                            <div class="service-text">
+                                تأشيرة زيارة أو سياحة
+                                <span class="country-badge uae-badge">الإمارات</span>
+                                <div class="sub-service">تأشيرات سياحية قصيرة المدة</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon gulf-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="service-text">
+                                تأشيرة حرة للعمل
+                                <span class="country-badge uae-badge">الإمارات</span>
+                                <div class="sub-service">تأشيرات عمل في المناطق الحرة</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon gulf-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div class="service-text">
+                                تمديد أو تجديد التأشيرات
+                                <span class="country-badge uae-badge">الإمارات</span>
+                                <div class="sub-service">خدمات تجديد وتمديد التأشيرات</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#" class="order-button gulf-button">اطلب الخدمة الآن</a>
+                </div>
+            </div>
+            
+            <!-- خدمات إضافية -->
+            <div class="service-item">
+                <div class="service-header additional-header">
+                    <h3><i class="fas fa-plus-circle"></i> خدمات إضافية</h3>
+                </div>
+                <div class="service-content">
+                    <ul class="additional-list">
+                        <li>
+                            <div class="service-icon additional-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <div class="service-text">
+                                استخراج فيش جنائي معتمد للسفارات
+                                <div class="sub-service">فيش جنائي معتمد ومصدق</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon additional-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="service-text">
+                                ترجمة شهادات رسمية (ميلاد، زواج، مؤهل)
+                                <div class="sub-service">ترجمة معتمدة للشهادات الرسمية</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon additional-icon">
+                                <i class="fas fa-passport"></i>
+                            </div>
+                            <div class="service-text">
+                                استخراج أو تجديد جواز سفر
+                                <div class="sub-service">خدمات استخراج وتجديد الجوازات</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon additional-icon">
+                                <i class="fas fa-stamp"></i>
+                            </div>
+                            <div class="service-text">
+                                التصديق على أوراق جامعية أو تجارية
+                                <div class="sub-service">تصديق رسمي للمستندات الجامعية والتجارية</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon additional-icon">
+                                <i class="fas fa-hotel"></i>
+                            </div>
+                            <div class="service-text">
+                                حجز فندق مبدائى
+                                <div class="sub-service">حجوزات فنادق لمتطلبات السفارة</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon additional-icon">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div class="service-text">
+                                حجز طيران
+                                <div class="sub-service">حجز تذاكر طيران رسمية</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon additional-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="service-text">
+                                تقديم ملفات الهجرة والسفر للدراسة
+                                <div class="sub-service">خدمات متكاملة للهجرة والدراسة</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon additional-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="service-text">
+                                تغير مهنة
+                                <div class="sub-service">خدمات تغيير المهنة في الإقامات</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-icon additional-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div class="service-text">
+                                عمل تصريح امني للسفر 
+                                <div class="sub-service">استخراج التصاريح الأمنية للسفر</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#" class="order-button additional-button">اطلب الخدمة الآن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم آراء العملاء -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-header">
+            <h2>آراء عملائنا</h2>
+            <p>ما يقوله عملاؤنا عن خدماتنا في تجهيز ملفات السفارات</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>لقد حصلت على تأشيرة شنغن خلال 10 أيام فقط! الملف كان منظمًا بدقة ومكتملًا تمامًا، لم تطلب السفارة أي مستند إضافي. شكرًا للفريق المحترف!</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">م</div>
+                    <div>
+                        <h4>محمد السيد</h4>
+                        <p>تأشيرة شنغن سياحية</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>تجربتي مع شركة خدمات السفارات كانت ممتازة، لقد جهزوا ملف السفارة السعودية بدقة متناهية، الموظفون محترفون ويقدمون إرشادات دقيقة لكل خطوة.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar gulf-avatar">س</div>
+                    <div>
+                        <h4>سارة عبد الرحمن</h4>
+                        <p>تأشيرة عمل للسعودية</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>لقد كنت قلقة بشأن تجديد جواز سفري، لكن الفريق المحترف أعد الملف بشكل ممتاز وحصلت على الجواز خلال أسبوع فقط. أنصح الجميع بالتعامل معهم.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">أ</div>
+                    <div>
+                        <h4>أحمد محمود</h4>
+                        <p>تجديد جواز سفر</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم نبذة عنا -->
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h2>من نحن</h2>
+            <p>شركة خدمات السفارات هي شركة متخصصة في تجهيز وتقديم ملفات السفارات الأوروبية والخليجية. مهمتنا هي تقديم خدمات تأشيرات السفر بجودة عالية وباحترافية مع ضمان أعلى معايير الدقة.</p>
+            
+            <p>نحن نضمن لعملائنا الحصول على أفضل الخدمات من خلال:</p>
+            <ul>
+                <li>فريق محترف ذو خبرة واسعة في متطلبات سفارات العالم</li>
+                <li>مراجعة شاملة لكل المستندات المطلوبة</li>
+                <li>تحديث دائم بمتطلبات السفارات العالمية</li>
+                <li>دعم متكامل قبل وبعد الحصول على التأشيرة</li>
+                <li>معالجة سريعة ودقيقة للملفات</li>
+            </ul>
+            
+            <p>نفتخر بأننا قمنا بمساعدة الآلاف من العملاء في الحصول على تأشيرات السفر خلال السنوات الماضية. ثقة عملائنا هي شهادتنا الحقيقية.</p>
+            
+            <div class="cert-badges">
+                <div class="cert-badge">
+                    <i class="fas fa-award"></i>
+                    <span>خبرة 12 سنة</span>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-certificate"></i>
+                    <span>شهادات اعتماد</span>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-users"></i>
+                    <span>فريق محترف</span>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-check-circle"></i>
+                    <span>نجاح 98%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-passport"></i>
+                    </div>
+                    خدمات السفارات
+                </div>
+                <p>نقدم خدمات احترافية للحصول على تأشيرات السفر بكل سهولة ويسر، مع ضمان أعلى مستويات الجودة والاحترافية في تجهيز ملفات السفارات.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#testimonials">آراء العملاء</a></li>
+                    <li><a href="#about">نبذة عنا</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>خدماتنا</h3>
+                <ul>
+                    <li><a href="#">تأشيرات الشنغن</a></li>
+                    <li><a href="#">تأشيرات الخليج</a></li>
+                    <li><a href="#">خدمات إضافية</a></li>
+                    <li><a href="#">تجديد الجوازات</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>اتصل بنا</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>القاهرة، الجمهورية العربية المصرية</div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>+201018516175</div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>info@visaservices.com</div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>الأحد - الخميس: 10 صباحاً - 5 مساءً</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>جميع الحقوق محفوظة © 2023 خدمات السفارات</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // إضافة تأثير التمرير السلس
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // إضافة تأثيرات للبطاقات عند التمرير
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // تطبيق التأثير على البطاقات
+            document.querySelectorAll('.service-item, .testimonial-card').forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // تغيير لون الشريط العلوي عند التمرير
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(15, 48, 87, 0.95)';
+                    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
+                } else {
+                    header.style.background = 'linear-gradient(135deg, var(--primary), #0a2540)';
+                    header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

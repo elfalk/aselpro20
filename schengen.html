@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات تأشيرات الشنغن - تجهيز ملفات السفارات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f3057;
+            --secondary: #024864;
+            --accent: #2ad6a3;
+            --light: #f8f9fa;
+            --dark: #2ec2ae;
+            --success: #5fdfca;
+            --coral: #a33205;
+            --paper: #f0f5ff;
+            --document: #e6f4f8;
+            --europe: #3ec0aa;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #dff7e4;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), #0a2540);
+            color: white;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            background: var(--success);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-15deg);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-icon i {
+            color: white;
+            font-size: 1.8rem;
+            animation: fly 3s ease-in-out infinite;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover {
+            color: white;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--success);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background: var(--success);
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 183, 168, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            background: #00c9b8;
+            box-shadow: 0 6px 20px rgba(0, 183, 168, 0.4);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(15, 48, 87, 0.9), rgba(10, 37, 64, 0.95)), url('https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+        }
+        
+        .services-section {
+            padding: 5rem 5%;
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--success);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            font-size: 1.3rem;
+            color: #555;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-item {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-header {
+            background: var(--europe);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .service-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .service-content {
+            padding: 2rem;
+        }
+        
+        .service-content ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .service-content li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+        
+        .service-content li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 15px;
+            width: 8px;
+            height: 8px;
+            background: var(--europe);
+            border-radius: 50%;
+        }
+        
+        .price-tag {
+            display: inline-block;
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--europe);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        
+        .contract-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .contract-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--europe);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contract-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contract-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contract-card .flag {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--europe);
+        }
+        
+        .contract-card .salary {
+            background: rgba(0, 183, 168, 0.1);
+            color: var(--success);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 700;
+            margin: 1rem 0;
+            display: inline-block;
+            align-self: flex-start;
+        }
+        
+        .contract-card ul {
+            list-style: none;
+            margin: 1rem 0;
+            flex-grow: 1;
+        }
+        
+        .contract-card li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+        
+        .contract-card li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 15px;
+            width: 8px;
+            height: 8px;
+            background: var(--europe);
+            border-radius: 50%;
+        }
+        
+        .contract-card .countries {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .country-tag {
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--europe);
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .testimonials-section {
+            padding: 5rem 5%;
+            background: var(--paper);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(67, 97, 238, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            margin-top: 2rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--europe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .about-section {
+            padding: 5rem 5%;
+            background: linear-gradient(to bottom, #f0f7fa, #e6f4f8);
+            position: relative;
+        }
+        
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .about-content h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .cert-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .cert-badge {
+            width: 120px;
+            height: 120px;
+            background: var(--europe);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
+        }
+        
+        .cert-badge i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #0a2540, #071a30);
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-about {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+        
+        .footer-logo .logo-icon {
+            width: 45px;
+            height: 45px;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--success);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--success);
+            transform: translateX(5px);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            color: var(--success);
+            font-size: 1.2rem;
+            margin-top: 0.3rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .order-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 1.5rem;
+            background: var(--europe);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+        
+        .order-button:hover {
+            background: #5a6ef1;
+            transform: translateY(-3px);
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--europe);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            color: var(--europe);
+            margin-bottom: 1rem;
+        }
+        
+        .step h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .schengen-map {
+            max-width: 800px;
+            margin: 3rem auto;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .schengen-map img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+        
+        .requirements-list {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: var(--paper);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .requirements-list h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .requirement-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .requirement-item i {
+            color: var(--europe);
+            font-size: 1.5rem;
+        }
+        
+        .contracts-section {
+            padding: 5rem 5%;
+            background: var(--document);
+        }
+        
+        .contracts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .contract-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .contract-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contract-header {
+            background: var(--success);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .contract-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contract-content {
+            padding: 2rem;
+        }
+        
+        .contract-content ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .contract-content li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+        
+        .contract-content li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 15px;
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+        }
+        
+        .contract-price {
+            display: inline-block;
+            background: rgba(0, 183, 168, 0.1);
+            color: var(--success);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        
+        @keyframes fly {
+            0%, 100% {
+                transform: translateY(0) rotate(-15deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(-20deg);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.3rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .cert-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+        }.gaza-banner {
+    background-color: #008891;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-family: 'Tajawal', sans-serif;
+}.enemy-word {
+    color: #c0392b; /* لون أحمر عدواني */
+    font-weight: bold;
+    text-decoration: underline
+    transition all 0.3s ease;
+}
+
+.enemy-word:hover {
+    color: #e74c3c; /* لون أفتح عند المرور */
+    text-shadow: 0 0 5px red;
+    transform: scale(1.1);
+    cursor: not-allowed;
+}
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي والتنقل -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-dove"></i>
+                </div>
+                Asel Pro
+            </a>
+            
+           <nav class="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="gulf.html">تاشيرات الخلبج </a>
+                <a href="papers.html">الاوراق</a>
+                <a href="#testimonials">آراء العملاء</a>
+                <a href="#about">نبذة عنا</a>
+            </nav>
+            
+          <a href="https://wa.me/201018516175" target="_blank" class="cta-button">اتصل الآن</a>
+
+        </div>
+    </header>
+
+    <!-- قسم البطل -->
+    <section class="hero">
+        <h1>خدمات تأشيرات منطقة الشنغن</h1>
+        <p>تجهيز وتقديم ملفات تأشيرات الشنغن لـ 29 دولة أوروبية باحترافية وسرعة فائقة مع ضمان أعلى معايير الجودة</p>
+
+    </section>
+     <div class="gaza-banner">
+    <p>
+         نحن متضامنون مع غزة... ولن نقدم أي خدمة لأي كيان <span class="enemy-word">صهيوني</span>.
+ أو داعم له</p>
+</div><link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700&display=swap" rel="stylesheet">
+
+
+
+
+    <!-- قسم خدمات التأشيرات -->
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <h2>خدمات تأشيرات الشنغن</h2>
+            <p>نقدم خدمات متكاملة لتجهيز وتقديم ملفات التأشيرات باحترافية وسرعة فائقة</p>
+        </div>
+        
+        <div class="services-container">
+            <!-- خدمة فرنسا -->
+            <div class="service-item">
+                <div class="service-header">
+                    <h3>تأشيرة فرنسا</h3>
+                    <p>خدمات احترافية للحصول على تأشيرة فرنسا</p>
+                </div>
+                <div class="service-content">
+                    <div class="price-tag">بدءاً من 8000 جنيه</div>
+                    <ul>
+                        <li>تأشيرة سياحية لمدة 90 يوم</li>
+                        <li>تأشيرة زيارة عائلية</li>
+                        <li>تأشيرة دراسة وتعليم</li>
+                        <li>تأشيرة عمل واجتماعات</li>
+                        <li>تأشيرة طبية</li>
+                    </ul>
+                    <a href="#" class="order-button">اطلب الخدمة الآن</a>
+                </div>
+            </div>
+            
+            <!-- خدمة ألمانيا -->
+            <div class="service-item">
+                <div class="service-header">
+                    <h3>تأشيرة ألمانيا</h3>
+                    <p>خدمات تأشيرات ألمانيا باحترافية</p>
+                </div>
+                <div class="service-content">
+                    <div class="price-tag">بدءاً من 8000 جنيه</div>
+                    <ul>
+                        <li>تأشيرة سياحية لمدة 90 يوم</li>
+                        <li>تأشيرة زيارة للأقارب</li>
+                        <li>تأشيرة علاج طبي</li>
+                        <li>تأشيرة مؤتمرات وندوات</li>
+                        <li>تأشيرة عمل قصيرة المدة</li>
+                    </ul>
+                    <a href="#" class="order-button">اطلب الخدمة الآن</a>
+                </div>
+            </div>
+            
+            <!-- خدمة إيطاليا -->
+            <div class="service-item">
+                <div class="service-header">
+                    <h3>تأشيرة إيطاليا</h3>
+                    <p>تأشيرات إيطاليا بسرعة ودقة</p>
+                </div>
+                <div class="service-content">
+                    <div class="price-tag">بدءاً من 8000 جنيه</div>
+                    <ul>
+                        <li>تأشيرة سياحية لمدة 90 يوم</li>
+                        <li>تأشيرة زيارة للعائلة</li>
+                        <li>تأشيرة دراسة قصيرة</li>
+                        <li>تأشيرة سياحة دينية</li>
+                        <li>تأشيرة أحداث ثقافية</li>
+                    </ul>
+                    <a href="#" class="order-button">اطلب الخدمة الآن</a>
+                </div>
+            </div>
+            
+            <!-- خدمة إسبانيا -->
+            <div class="service-item">
+                <div class="service-header">
+                    <h3>تأشيرة إسبانيا</h3>
+                    <p>تأشيرات إسبانيا باحترافية</p>
+                </div>
+                <div class="service-content">
+                    <div class="price-tag">بدءاً من 8000 جنيه</div>
+                    <ul>
+                        <li>تأشيرة سياحية لمدة 90 يوم</li>
+                        <li>تأشيرة زيارة الأقارب</li>
+                        <li>تأشيرة مؤتمرات</li>
+                        <li>تأشيرة علاج طبي</li>
+                        <li>تأشيرة أحداث رياضية</li>
+                    </ul>
+                    <a href="#" class="order-button">اطلب الخدمة الآن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم عقود العمل -->
+    <section class="contracts-section" id="contracts">
+        <div class="section-header">
+            <h2>عقود العمل في دول أوروبا</h2>
+            <p>فرص عمل مميزة في دول الشنغن بمهن مختلفة وبشروط تنافسية</p>
+        </div>
+        
+        <div class="contracts-grid">
+            <!-- عقد 1 -->
+            <div class="contract-item">
+                <div class="contract-header">
+                    <h3>مهندس برمجيات</h3>
+                    <p>عقود عمل في أوروبا</p>
+                </div>
+                <div class="contract-content">
+                    <div class="contract-price">راتب: 800-2800 يورو</div>
+                    <ul>
+                        <li>عقد لمدة 3 سنوات قابلة للتجديد</li>
+                        <li>تأمين صحي شامل</li>
+                        <li>إجازة سنوية مدفوعة الأجر 25 يوم</li>
+                        <li>تذاكر سفر سنوية للوطن</li>
+                        <li>فرص تدريب وتطوير مستمرة</li>
+                    </ul>
+                    <a href="#" class="order-button">تقديم طلب الآن</a>
+                </div>
+            </div>
+            
+            <!-- عقد 2 -->
+            <div class="contract-item">
+                <div class="contract-header">
+                    <h3>ممرض/ممرضة</h3>
+                    <p>عقود عمل في أوروبا</p>
+                </div>
+                <div class="contract-content">
+                    <div class="contract-price">راتب: 950-1100 يورو</div>
+                    <ul>
+                        <li>عقد لمدة 2 سنوات قابلة للتجديد</li>
+                        <li>سكن مجاني أو بدل سكن</li>
+                        <li>تأمين صحي شامل للعائلة</li>
+                        <li>دورات تدريبية معتمدة</li>
+                        <li>فرصة الحصول على إقامة دائمة</li>
+                    </ul>
+                    <a href="#" class="order-button">تقديم طلب الآن</a>
+                </div>
+            </div>
+            
+            <!-- عقد 3 -->
+            <div class="contract-item">
+                <div class="contract-header">
+                    <h3>طاهٍ محترف</h3>
+                    <p>عقود عمل في أوروبا</p>
+                </div>
+                <div class="contract-content">
+                    <div class="contract-price">راتب: 850-1200 يورو</div>
+                    <ul>
+                        <li>عقد لمدة 18 شهر قابلة للتجديد</li>
+                        <li>سكن مجاني أو بدل سكن</li>
+                        <li>مكافآت أداء شهرية</li>
+                        <li>تذاكر سفر سنوية</li>
+                        <li>تأمين صحي شامل</li>
+                    </ul>
+                    <a href="#" class="order-button">تقديم طلب الآن</a>
+                </div>
+            </div>
+            
+            <!-- عقد 4 -->
+            <div class="contract-item">
+                <div class="contract-header">
+                    <h3>فني كهرباء</h3>
+                    <p>عقود عمل في أوروبا</p>
+                </div>
+                <div class="contract-content">
+                    <div class="contract-price">راتب: 1000-1200 يورو</div>
+                    <ul>
+                        <li>عقد لمدة 3 سنوات قابلة للتجديد</li>
+                        <li>بدل انتقالات</li>
+                        <li>تأمين صحي شامل</li>
+                        <li>إجازة سنوية مدفوعة الأجر 20 يوم</li>
+                        <li>فرص تدريب وتطوير مستمرة</li>
+                    </ul>
+                    <a href="#" class="order-button">تقديم طلب الآن</a>
+                </div>
+            </div>
+            
+            <!-- عقد 5 -->
+            <div class="contract-item">
+                <div class="contract-header">
+                    <h3>مهندس ميكانيكا</h3>
+                    <p>عقود عمل في أوروبا</p>
+                </div>
+                <div class="contract-content">
+                    <div class="contract-price">راتب: 1500-1700 يورو</div>
+                    <ul>
+                        <li>عقد لمدة سنتين قابلة للتجديد</li>
+                        <li>بدل سكن ومواصلات</li>
+                        <li>تأمين صحي شامل للعائلة</li>
+                        <li>إجازة سنوية مدفوعة الأجر 30 يوم</li>
+                        <li>مكافآت سنوية على الأداء</li>
+                    </ul>
+                    <a href="#" class="order-button">تقديم طلب الآن</a>
+                </div>
+            </div>
+            
+            <!-- عقد 6 -->
+            <div class="contract-item">
+                <div class="contract-header">
+                    <h3>معلم لغة عربية</h3>
+                    <p>عقود عمل في أوروبا</p>
+                </div>
+                <div class="contract-content">
+                    <div class="contract-price">راتب: 1200-1800 يورو</div>
+                    <ul>
+                        <li>عقد لمدة سنتين قابلة للتجديد</li>
+                        <li>تأمين صحي شامل</li>
+                        <li>إجازة صيفية مدفوعة الأجر</li>
+                        <li>دورات تدريبية مستمرة</li>
+                        <li>تذاكر سفر سنوية للوطن</li>
+                    </ul>
+                    <a href="#" class="order-button">تقديم طلب الآن</a>
+                </div>
+            </div>
+            
+            <!-- عقد 7 -->
+            <div class="contract-item">
+                <div class="contract-header">
+                    <h3>فني تبريد وتكييف</h3>
+                    <p>عقود عمل في أوروبا</p>
+                </div>
+                <div class="contract-content">
+                    <div class="contract-price">راتب: 950-1300 يورو</div>
+                    <ul>
+                        <li>عقد لمدة سنتين قابلة للتجديد</li>
+                        <li>بدل انتقالات</li>
+                        <li>تأمين صحي شامل</li>
+                        <li>إجازة سنوية مدفوعة الأجر 20 يوم</li>
+                        <li>فرص تدريب وتطوير مستمرة</li>
+                    </ul>
+                    <a href="#" class="order-button">تقديم طلب الآن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- خطوات تجهيز الملفات -->
+    <section class="services-section" id="process" style="background-color: var(--paper);">
+        <div class="section-header">
+            <h2>خطوات تجهيز ملفات السفارات</h2>
+            <p>نضمن لك تجهيز ملفات السفارات على أعلى مستوى من الدقة والاحترافية</p>
+        </div>
+        
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-icon"><i class="fas fa-file-alt"></i></div>
+                <h3>مراجعة المستندات</h3>
+                <p>مراجعة شاملة لكل المستندات المطلوبة والتأكد من اكتمالها</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-icon"><i class="fas fa-edit"></i></div>
+                <h3>ملء الاستمارات</h3>
+                <p>ملء استمارات السفارة بدقة ومراجعة المعلومات</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-icon"><i class="fas fa-calendar-check"></i></div>
+                <h3>حجز المواعيد</h3>
+                <p>حجز مواعيد السفارة في أقرب وقت ممكن</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                <h3>مراجعة نهائية</h3>
+                <p>مراجعة نهائية لكل المستندات قبل التقديم</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-icon"><i class="fas fa-plane-departure"></i></div>
+                <h3>استلام التأشيرة</h3>
+                <p>استلام جواز السفر مع التأشيرة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- متطلبات السفارات -->
+    <section class="services-section" id="requirements">
+        <div class="section-header">
+            <h2>متطلبات السفارات الأساسية</h2>
+            <p>المستندات المطلوبة للحصول على تأشيرة الشنغن</p>
+        </div>
+        
+        <div class="requirements-list">
+            <h3>المستندات الأساسية المطلوبة لجميع دول الشنغن</h3>
+            <div class="requirements-grid">
+                <div class="requirement-item">
+                    <i class="fas fa-passport"></i>
+                    <div>جواز سفر ساري المفعول لمدة 6 أشهر على الأقل</div>
+                </div>
+                
+                <div class="requirement-item">
+                    <i class="fas fa-id-card"></i>
+                    <div>صورة شخصية حديثة بخلفية بيضاء</div>
+                </div>
+                
+                <div class="requirement-item">
+                    <i class="fas fa-file-invoice"></i>
+                    <div>استمارة طلب التأشيرة مكتملة وموقعة</div>
+                </div>
+                
+                <div class="requirement-item">
+                    <i class="fas fa-file-contract"></i>
+                    <div>حجز فندق أو دعوة رسمية للإقامة</div>
+                </div>
+                
+                <div class="requirement-item">
+                    <i class="fas fa-plane-ticket"></i>
+                    <div>حجز تذاكر طيران ذهاب وعودة</div>
+                </div>
+                
+                <div class="requirement-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <div>كشف حساب بنكي لآخر 6 أشهر</div>
+                </div>
+                
+                <div class="requirement-item">
+                    <i class="fas fa-briefcase"></i>
+                    <div>شهادة عمل مع الراتب</div>
+                </div>
+                
+                <div class="requirement-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>تأمين طبي للسفر</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="schengen-map">
+            <h3>دول منطقة الشنغن (29 دولة)</h3>
+            <p>تأشيرة واحدة تمكنك من زيارة جميع هذه الدول</p>
+
+
+
+        </div>
+    </section>
+
+    <!-- قسم آراء العملاء -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-header">
+            <h2>آراء عملائنا</h2>
+            <p>ما يقوله عملاؤنا عن خدماتنا في تجهيز ملفات السفارات</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>لقد حصلت على تأشيرة فرنسا خلال 10 أيام فقط! الملف كان منظمًا بدقة ومكتملًا تمامًا، لم تطلب السفارة أي مستند إضافي. شكرًا للفريق المحترف!</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">م</div>
+                    <div>
+                        <h4>محمد السيد</h4>
+                        <p>تأشيرة فرنسا السياحية</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>تجربتي مع شركة AselPro كانت ممتازة، لقد جهزوا ملف السفارة الألمانية بدقة متناهية، الموظفون محترفون ويقدمون إرشادات دقيقة لكل خطوة.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">س</div>
+                    <div>
+                        <h4>سارة عبد الرحمن</h4>
+                        <p>تأشيرة ألمانيا للعلاج</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>لقد كنت قلق بشأن تأشيرة إيطاليا لأن سجل سفري ضعيف، لكن الفريق المحترف أعد الملف بشكل ممتاز وحصلت على التأشيرة من أول مرة. أنصح الجميع بالتعامل معهم.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">أ</div>
+                    <div>
+                        <h4>أحمد محمود</h4>
+                        <p>تأشيرة إيطاليا السياحية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم نبذة عنا -->
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h2>من نحن</h2>
+            <p>شركة AselPro هي شركة متخصصة في تجهيز وتقديم ملفات السفارات الأوروبية. مهمتنا هي تقديم خدمات تأشيرات الشنغن بجودة عالية وبأسعار تنافسية مع ضمان أعلى معايير الدقة والاحترافية.</p>
+            
+            <p>نحن نضمن لعملائنا الحصول على أفضل الخدمات من خلال:</p>
+            <ul>
+                <li>فريق محترف ذو خبرة واسعة في متطلبات سفارات الشنغن</li>
+                <li>مراجعة شاملة لكل المستندات المطلوبة</li>
+                <li>تحديث دائم بمتطلبات السفارات الأوروبية</li>
+                <li>أسعار شفافة دون مفاجآت</li>
+                <li>دعم متكامل قبل وبعد الحصول على التأشيرة</li>
+            </ul>
+            
+            <p>نفتخر بأننا قمنا بمساعدة الآلاف من العملاء في الحصول على تأشيرات الشنغن خلال السنوات الماضية. ثقة عملائنا هي شهادتنا الحقيقية.</p>
+            
+            <div class="cert-badges">
+                <div class="cert-badge">
+                    <i class="fas fa-award"></i>
+                    <span>خبرة 10 سنوات</span>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-certificate"></i>
+                    <span>شهادات اعتماد</span>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-users"></i>
+                    <span>فريق محترف</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+     <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-dove"></i>
+                    </div>
+                    Asel Pro
+                </div>
+                <p>نقدم خدمات احترافية للحصول على التأشيرات بكل سهولة ويسر، مع ضمان أعلى مستويات الجودة والاحترافية في التعامل.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#services">خدمات التأشيرات</a></li>
+                    <li><a href="#contracts">عقود العمل</a></li>
+                    <li><a href="#process">خطوات العمل</a></li>
+                    <li><a href="#requirements">متطلبات السفارات</a></li>
+                    <li><a href="#testimonials">آراء العملاء</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>خدماتنا</h3>
+                <ul>
+                    <li><a href="#">تأشيرة فرنسا</a></li>
+                    <li><a href="#">تأشيرة ألمانيا</a></li>
+                    <li><a href="#">تأشيرة إيطاليا</a></li>
+                    <li><a href="#">تأشيرة إسبانيا</a></li>
+                    <li><a href="#">تأشيرات دول أخرى</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>اتصل بنا</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>القاهرة، الجمهورية العربية المصرية</div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>+201018516175</div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>schengen@visaservices.com</div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>الأحد - الخميس: 10 صباحاً - 5 مساءً</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>جميع الحقوق محفوظة © 2023 AselPro </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // إضافة تأثير التمرير السلس
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // إضافة تأثيرات للبطاقات عند التمرير
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // تطبيق التأثير على البطاقات
+            document.querySelectorAll('.service-item, .step, .requirement-item, .testimonial-card, .contract-item').forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // تغيير لون الشريط العلوي عند التمرير
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(15, 48, 87, 0.95)';
+                    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
+                } else {
+                    header.style.background = 'linear-gradient(135deg, var(--primary), #0a2540)';
+                    header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
