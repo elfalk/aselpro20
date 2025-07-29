@@ -1,1 +1,1541 @@
 
+
+ <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asel Pro - خدمات تأشيرات احترافية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f3057;
+            --secondary: #00587a;
+            --accent: #008891;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #00b7a8;
+            --coral: #a33205;
+            --paper: #f0f5ff;
+            --document: #e6f4f8;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #dff7e4;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .services-bar {
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+        
+        .service-tag:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .service-tag i {
+            color: var(--success);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), #0a2540);
+            color: white;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            background: var(--success);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-15deg);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-icon i {
+            color: white;
+            font-size: 1.8rem;
+            animation: fly 3s ease-in-out infinite;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+        }
+        
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover {
+            color: white;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--success);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        .cta-button {
+            background: var(--success);
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 183, 168, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            background: #00c9b8;
+            box-shadow: 0 6px 20px rgba(0, 183, 168, 0.4);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(15, 48, 87, 0.9), rgba(10, 37, 64, 0.95)), url('https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+        }
+        
+        .offer-banner {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 10px;
+            min-width: 80px;
+        }
+        
+        .countdown-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--success);
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }.service-tag {
+    display: block; /* يخلي الرابط ياخد نفس تنسيق البلوك */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    color: inherit;
+    text-decoration: none;
+}
+
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--success);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 183, 168, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: var(--success);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .services-section {
+            padding: 5rem 5%;
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--success);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            font-size: 1.3rem;
+            color: #555;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.8rem;
+            border-radius: 15px;
+            background: #fff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--success);
+        }
+        
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--accent);
+        }
+        
+        .service-item-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(15, 48, 87, 0.05);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--success);
+            flex-shrink: 0;
+        }
+        
+        .service-item-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+        
+        .paper-services {
+            padding: 5rem 5%;
+            background: var(--paper);
+            position: relative;
+        }
+        
+        .paper-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .paper-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+        
+        .paper-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .paper-icon {
+            background: var(--success);
+            color: white;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+        
+        .paper-content {
+            padding: 2rem;
+        }
+        
+        .paper-content h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .documentation-section {
+            padding: 5rem 5%;
+            background: var(--document);
+            position: relative;
+        }
+        
+        .doc-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .doc-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 250px;
+        }
+        
+        .doc-circle {
+            width: 100px;
+            height: 100px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 183, 168, 0.3);
+        }
+        
+        .doc-step h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .steps-section {
+            padding: 5rem 5%;
+            background: linear-gradient(to bottom, #f0f7fa, #e6f4f8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            width: 260px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 60px;
+            height: 60px;
+            background: var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 183, 168, 0.4);
+        }
+        
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(15, 48, 87, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.2rem;
+            color: var(--success);
+        }
+        
+        .step-card h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #0a2540, #071a30);
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-about {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+        
+        .footer-logo .logo-icon {
+            width: 45px;
+            height: 45px;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--success);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--success);
+            transform: translateX(5px);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            color: var(--success);
+            font-size: 1.2rem;
+            margin-top: 0.3rem;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--success);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .form-group textarea {
+            height: 100px;
+        }
+        
+        .form-submit {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+            width: 100%;
+        }
+        
+        .form-submit:hover {
+            background: #00c9b8;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--success);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 1000;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .news-ticker {
+            background: var(--coral);
+            color: white;
+            padding: 10px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .ticker-content {
+            display: flex;
+            animation: ticker 20s linear infinite;
+            white-space: nowrap;
+        }
+        
+        .ticker-item {
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .ticker-item i {
+            margin-left: 10px;
+            color: var(--success);
+        }
+        
+        @keyframes fly {
+            0%, 100% {
+                transform: translateY(0) rotate(-15deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(-20deg);
+            }
+        }
+        
+        @keyframes ticker {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.3rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.3rem;
+            }
+            
+            .services-bar {
+                gap: 0.8rem;
+                padding: 0.6rem 3%;
+            }
+            
+            .service-tag {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links a {
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                width: 100%;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .steps-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step-card {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .services-bar {
+                display: none;
+            }
+            
+            .paper-grid, .doc-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+            }
+        }
+    </style>
+</head>
+    </ul>
+  </div>
+</div>
+
+
+<body>
+   
+
+    <!-- شريط الأخبار المتحرك -->
+    <div class="news-ticker">
+        <div class="ticker-content">
+            <div class="ticker-item"><i class="fas fa-star"></i> عرض خاص: خصم 20% على جميع خدمات التأشيرات الحره للسعوديه</div>
+            <div class="ticker-item"><i class="fas fa-bolt"></i> خدمة جديدة: تجديد الإقامات خلال 24 ساعة فقط</div>
+            <div class="ticker-item"><i class="fas fa-gift"></i> عروض خاصة على تأشيرات شنغن لفترة محدودة</div>
+        </div>
+    </div>
+
+   <body>
+    <!-- شريط الخدمات العلوي الجديد -->
+    <div class="services-bar">
+
+    <a href="khaleeg/" class="service-tag">
+        <i class="fas fa-flag"></i>
+        <span>اقامات حره للخليج </span>
+    </a>
+
+    <a href="khaleeg/" class="service-tag">
+        <i class="fas fa-globe-asia"></i>
+        <span>عقود الخليج</span>
+    </a>
+
+    <a href="oroba/" class="service-tag">
+        <i class="fas fa-landmark"></i>
+        <span>عقود اوربا </span>
+    </a>
+
+    <a href="awraq/" class="service-tag">
+        <i class="fas fa-file-alt"></i>
+        <span>تغير مهنة</span>
+    </a>
+
+    <a href="awraq/" class="service-tag">
+        <i class="fas fa-certificate"></i>
+        <span>توثيق</span>
+    </a>
+
+</div>
+
+    </div>
+
+    <!-- الشريط العلوي والتنقل -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-dove"></i>
+                </div>
+                Asel Pro
+            </a>
+            
+            <nav class="nav-links">
+                <a href="khaleeg/">تأشيرات الخليج والشرق الأوسط</a>
+                <a href="oroba/">تأشيرات شنغن</a>
+                <a href="awraq/">الخدمات الورقية</a>
+                <a href="awraq/">خدمات التوثيق</a>
+            </nav>
+            
+           <a href="https://wa.me/201018516175" target="_blank" class="cta-button">اتصل الآن</a>
+
+        </div>
+    
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+           
+        </div>
+    </header>
+
+    <!-- قسم البطل -->
+    <section class="hero" id="home">
+        <h1>خدمات تأشيرات احترافية</h1>
+        <p>نقدم خدمات راقية للحصول على تأشيرات الشرق الأوسط، الخليج، شنغن، وخدمات التوثيق بكل سهولة واحترافية</p>
+        
+       <div class="solidarity-message" style="text-align: center; padding: 20px; background-color: #b6b8b2; border: 1px solid #cc0000; border-radius: 10px; margin: 20px auto; max-width: 600px;">
+  <h2 style="color: #b30000;">#غزة_في_القلب</h2>
+  <p style="font-size: 18px; color: #333;">
+    تضامنًا مع أهلنا في غزة، نعلن بشكل واضح أن خدمات Asel Pro <strong>لا تُقدَّم لأي شخص يحمل الجنسية الإسرائيلية</strong>، احترامًا لمشاعر الضحايا، ورفضًا للتطبيع مع كيان غاصب.
+  </p>
+  <p style="color: #555;">اللهم انصر أهل فلسطين وكن لهم معينًا.</p>
+</div>
+
+            </div>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-flag"></i>
+                </div>
+                <h3>تأشيرات الخليج</h3>
+                <p>خدمات احترافية للحصول على تأشيرات دول الخليج العربي بسهولة وضمان</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-globe-asia"></i>
+                </div>
+                <h3>تأشيرات الشرق الأوسط</h3>
+                <p>تأشيرات لجميع دول الشرق الأوسط بأعلى معايير الجودة والاحترافية</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <h3>تأشيرات شنغن</h3>
+                <p>تأشيرات شنغن لزيارة 29 دولة أوروبية بسرعة وموثوقية عالية</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم تأشيرات الخليج -->
+    <section class="services-section" id="gulf">
+        <div class="section-header">
+            <h2>تأشيرات الخليج</h2>
+            <p>خدمات متكاملة للحصول على تأشيرات دول الخليج بسرعة وضمان</p>
+        </div>
+        
+        <div class="services-container">
+            <div class="service-item">
+                <div class="service-item-icon">
+                    <i class="fas fa-passport"></i>
+                </div>
+                <div class="service-item-content">
+                    <h3>تأشيرات السعودية</h3>
+                    <p>تأشيرات سياحيةوالاقامات الحرة وعمل وزيارات عائلية للمملكة العربية السعودية</p>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-item-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="service-item-content">
+                    <h3>تأشيرات الإمارات</h3>
+                    <p>تأشيرات دبي وأبوظبي للسياحة والاقامات الحرة والعمل والاستثمار</p>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-item-icon">
+                    <i class="fas fa-oil-well"></i>
+                </div>
+                <div class="service-item-content">
+                    <h3>تأشيرات قطر</h3>
+                    <p>تأشيرات السياحه زيارات عائلية لدولة قطر</p>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-item-icon">
+                    <i class="fas fa-ship"></i>
+                </div>
+                <div class="service-item-content">
+                    <h3>تأشيرات الكويت</h3>
+                    <p>تأشيرات زيارة عائلية وتجارية لدولة الكويت</p>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-item-icon">
+                    <i class="fas fa-tree"></i>
+                </div>
+                <div class="service-item-content">
+                    <h3>تأشيرات البحرين</h3>
+                    <p>تأشيرات سياحية وعمل لمملكة البحرين</p>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-item-icon">
+                    <i class="fas fa-mosque"></i>
+                </div>
+                <div class="service-item-content">
+                    <h3>تأشيرات عمان</h3>
+                    <p>تأشيرات زيارة وسياحة لسلطنة عمان</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم تأشيرات الشرق الأوسط -->
+    <section class="paper-services" id="middle-east">
+        <div class="section-header">
+            <h2>تأشيرات الشرق الأوسط</h2>
+            <p>خدمات تأشيرات لدول الشرق الأوسط باحترافية وسرعة فائقة</p>
+        </div>
+        
+        <div class="paper-grid">
+            <div class="paper-card">
+                <div class="paper-icon">
+                    <i class="fas fa-archway"></i>
+                </div>
+                <div class="paper-content">
+                    <h3>تأشيرات المغرب</h3>
+                    <p>تأشيرات سياحية ودراسية وعمل لدولة المغرب  </p>
+                </div>
+            </div>
+            
+            <div class="paper-card">
+                <div class="paper-icon">
+                    <i class="fas fa-kaaba"></i>
+                </div>
+                <div class="paper-content">
+                    <h3>تأشيرات الأردن</h3>
+                    <p>تأشيرات زيارة وسياحة للمملكة الأردنية الهاشمية</p>
+                </div>
+            </div>
+            
+            <div class="paper-card">
+                <div class="paper-icon">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <div class="paper-content">
+                    <h3>تأشيرات لبنان</h3>
+                    <p>تأشيرات سياحية للجمهورية اللبنانية</p>
+                </div>
+            </div>
+            
+            <div class="paper-card">
+                <div class="paper-icon">
+                    <i class="fas fa-history"></i>
+                </div>
+                <div class="paper-content">
+                    <h3>تأشيرات العراق</h3>
+                    <p>تأشيرات عمل وتجارية لجمهورية العراق</p>
+                </div>
+            </div>
+            
+            <div class="paper-card">
+                <div class="paper-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="paper-content">
+                    <h3>تأشيرات تركيا</h3>
+                    <p>تأشيرات سياحية وعمل واستثمار لجمهورية تركيا</p>
+                </div>
+            </div>
+            
+            <div class="paper-card">
+                <div class="paper-icon">
+                    <i class="fas fa-dove"></i>
+                </div>
+                <div class="paper-content">
+                    <h3>تأشيرات فلسطين</h3>
+                    <p>تأشيرات زيارة للأراضي الفلسطينية وليس الكيان الصهيوني </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم تأشيرات شنغن -->
+    <section class="documentation-section" id="schengen">
+        <div class="section-header">
+            <h2>تأشيرات شنغن</h2>
+            <p>تأشيرات شنغن لزيارة 29 دولة أوروبية بسهولة وضمان</p>
+        </div>
+        
+        <div class="doc-steps">
+            <div class="doc-step">
+                <div class="doc-circle">
+                    <i class="fas fa-eiffel-tower"></i>
+                </div>
+                <h3>تأشيرة فرنسا</h3>
+                <p>تأشيرات شنغن لزيارة باريس ومناطق الجذب السياحي في فرنسا</p>
+            </div>
+            
+            <div class="doc-step">
+                <div class="doc-circle">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <h3>تأشيرة ألمانيا</h3>
+                <p>تأشيرات شنغن لزيارة برلين وميونخ وغيرها من المدن الألمانية</p>
+            </div>
+            
+            <div class="doc-step">
+                <div class="doc-circle">
+                    <i class="fas fa-pizza-slice"></i>
+                </div>
+                <h3>تأشيرة إيطاليا</h3>
+                <p>تأشيرات شنغن لزيارة روما والبندقية وميلانو</p>
+            </div>
+            
+            <div class="doc-step">
+                <div class="doc-circle">
+                    <i class="fas fa-wind"></i>
+                </div>
+                <h3>تأشيرة هولندا</h3>
+                <p>تأشيرات شنغن لزيارة أمستردام وروتردام</p>
+            </div>
+            
+            <div class="doc-step">
+                <div class="doc-circle">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <h3>تأشيرة إسبانيا</h3>
+                <p>تأشيرات شنغن لزيارة برشلونة ومدريد</p>
+            </div>
+            
+            <div class="doc-step">
+                <div class="doc-circle">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <h3>تأشيرة سويسرا</h3>
+                <p>تأشيرات شنغن لزيارة جبال الألب السويسرية</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات الورقية -->
+    <section class="paper-services" id="paper">
+        <div class="section-header">
+            <h2>الخدمات الورقية</h2>
+            <p>خدمات ورقية متكاملة لتسهيل إجراءات التأشيرات والوثائق الرسمية</p>
+        </div>
+        
+        <div class="paper-grid">
+            <div class="paper-card">
+                <div class="paper-icon">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
+                <div class="paper-content">
+                    <h3>إعداد المستندات</h3>
+                    <p>إعداد كافة المستندات المطلوبة للتأشيرات بدقة عالية ومطابقة للمعايير</p>
+                </div>
+            </div>
+            
+            <div class="paper-card">
+                <div class="paper-icon">
+                    <i class="fas fa-file-contract"></i>
+                </div>
+                <div class="paper-content">
+                    <h3>ترجمة المستندات</h3>
+                    <p>ترجمة احترافية للمستندات الرسمية والشخصية بجميع اللغات المطلوبة</p>
+                </div>
+            </div>
+            
+            <div class="paper-card">
+                <div class="paper-icon">
+                    <i class="fas fa-stamp"></i>
+                </div>
+                <div class="paper-content">
+                    <h3>تصديق المستندات</h3>
+                    <p>تصديق جميع أنواع المستندات الرسمية من الجهات المختصة</p>
+                </div>
+            </div>
+            
+            <div class="paper-card">
+                <div class="paper-icon">
+                    <i class="fas fa-print"></i>
+                </div>
+                <div class="paper-content">
+                    <h3>طباعة المستندات</h3>
+                    <p>طباعة احترافية لجميع المستندات بجودة عالية وبأفضل الأسعار</p>
+                </div>
+            </div>
+            
+            <div class="paper-card">
+                <div class="paper-icon">
+                    <i class="fas fa-folder-open"></i>
+                </div>
+                <div class="paper-content">
+                    <h3>تنظيم الملفات</h3>
+                    <p>تنظيم ملفات التأشيرات والمستندات بشكل احترافي وسهل التصفح</p>
+                </div>
+            </div>
+            
+            <div class="paper-card">
+                <div class="paper-icon">
+                    <i class="fas fa-archive"></i>
+                </div>
+                <div class="paper-content">
+                    <h3>أرشفة المستندات</h3>
+                    <p>حفظ وأرشفة المستندات إلكترونياً للرجوع إليها عند الحاجة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم خدمات التوثيق -->
+    <section class="documentation-section" id="doc">
+        <div class="section-header">
+            <h2>خدمات التوثيق</h2>
+            <p>خدمات توثيق احترافية لجميع المستندات الرسمية والشخصية</p>
+        </div>
+        
+        <div class="doc-steps">
+            <div class="doc-step">
+                <div class="doc-circle">
+                    <i class="fas fa-file-signature"></i>
+                </div>
+                <h3>توثيق العقود</h3>
+                <p>توثيق جميع أنواع العقود الرسمية والشخصية وفقاً للقوانين المحلية والدولية</p>
+            </div>
+            
+            <div class="doc-step">
+                <div class="doc-circle">
+                    <i class="fas fa-passport"></i>
+                </div>
+                <h3> الاعتمادوالمصادقه</h3> </h3>
+                <p>انشاء الاعتماد المهني والاختبار المهني لدولة السعوديه وعمل المصادقه</p>
+            </div>
+            
+            <div class="doc-step">
+                <div class="doc-circle">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>توثيق الشهادات</h3>
+                <p>توثيق الشهادات الدراسية والشهادات المهنية من الجهات المختصة</p>
+            </div>
+            
+            <div class="doc-step">
+                <div class="doc-circle">
+                    <i class="fas fa-file-medical"></i>
+                </div>
+                <h3>توثيق التقارير الطبية</h3>
+                <p>توثيق التقارير الطبية والمستندات الصحية للعلاج والسفر</p>
+            </div>
+            
+            <div class="doc-step">
+                <div class="doc-circle">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h3>تغير المهنة بالبطاقة للمصري</h3>
+                <p>تغير المهنة في البطاقة الرقم القومي خلال يومين .متاح جميع المهن الغير حكومية</p>
+            </div>
+            
+            <div class="doc-step">
+                <div class="doc-circle">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3> اتش ار ليتر </h3>
+                <p>عمل الاتش ار ليتر بجميع المهن وجميع الشركات </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم خطوات التقديم -->
+    <section class="steps-section" id="steps">
+        <div class="section-header">
+            <h2>خطوات التقديم</h2>
+            <p>عملية بسيطة من 4 خطوات فقط للحصول على تأشيرتك</p>
+        </div>
+        
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <h3>التسجيل</h3>
+                <p>سجل حسابك على المنصة وأكمل معلوماتك الأساسية</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-icon">
+                    <i class="fas fa-route"></i>
+                </div>
+                <h3>اختيار التأشيرة</h3>
+                <p>اختر التأشيرة المناسبة وقدم طلبك مع المستندات المطلوبة</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-icon">
+                    <i class="fas fa-calendar-day"></i>
+                </div>
+                <h3>حجز الموعد</h3>
+                <p>نساعدك في حجز موعد المقابلة في السفارة أو المركز المعتمد</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-icon">
+                    <i class="fas fa-passport"></i>
+                </div>
+                <h3>استلام التأشيرة</h3>
+                <p>استلم جواز سفرك مع التأشيرة في منزلك أو من أقرب فرع لنا</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-dove"></i>
+                    </div>
+                    Asel Pro
+                </div>
+                <p>نقدم خدمات احترافية للحصول على التأشيرات بكل سهولة ويسر، مع ضمان أعلى مستويات الجودة والاحترافية في التعامل.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="papers.html">تغير مهنة </a></li>
+                    <li><a href="papers.html">حساب بنكي </a></li>
+                    <li><a href="papers.html">اعتماد مهني للسعودية </a></li>
+                    <li><a href="papers.html"> توثيق شهادات</a></li>
+                    <li><a href="papers.html">عقد من السعودية للاجازه</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3>خدماتنا</h3>
+                <ul>
+                    <li><a href="gulf.html">تأشيرات حره للسعوديه</a></li>
+                    <li><a href="gulf.html">تأشيرات الامارات</a></li>
+                    <li><a href="gulf.html">نقل كفالة في السعودية</a></li>
+                    <li><a href="schengen.html">عقود العمل لاوربا</a></li>
+                    <li><a href="gulf.html">عقود العمل للخليج</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>اتصل بنا</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>القاهرة، الجمهورية العربية المصرية</div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>+201018516175
+        
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>Yossef@aselpro.com</div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>الأحد - الخميس: 10 صباحاً - 5 مساءً</div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>أرسل لنا رسالة</h3>
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل</label>
+                        <input type="text" id="name" placeholder="اسمك الكريم">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" placeholder="example@domain.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">الرسالة</label>
+                        <textarea id="message" placeholder="كيف يمكننا مساعدتك؟"></textarea>
+                    </div>
+                    <button class="form-submit">إرسال الرسالة</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>جميع الحقوق محفوظة © 2023 Asel Pro</p>
+        </div>
+    </footer>
+
+    <!-- نافذة الرسائل العائمة -->
+    <div class="toast" id="toast">تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. قائمة التنقل للجوال
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                this.querySelector('i').classList.toggle('fa-bars');
+                this.querySelector('i').classList.toggle('fa-times');
+            });
+            
+            // 2. تأثير التمرير السلس للروابط
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    // إغلاق قائمة الجوال عند النقر على رابط
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                        mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    }
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // 3. تأثيرات الظهور للبطاقات عند التمرير
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.service-card, .service-item, .step-card, .paper-card, .doc-step').forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // 4. مؤقت العروض
+            function updateCountdown() {
+                const now = new Date();
+                const offerEnd = new Date();
+                offerEnd.setDate(offerEnd.getDate() + 3); // ينتهي العرض بعد 3 أيام
+                
+                const diff = offerEnd - now;
+                
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                if (diff <= 0) {
+                    clearInterval(countdownInterval);
+                }
+            }
+            
+            let countdownInterval = setInterval(updateCountdown, 1000);
+            updateCountdown();
+            
+            // 5. إرسال نموذج الاتصال
+            const contactForm = document.querySelector('.contact-form');
+            const toast = document.getElementById('toast');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // في الواقع، هنا سيكون إرسال البيانات إلى الخادم
+                    // ولكن لأغراض العرض، سنظهر رسالة نجاح
+                    
+                    // إظهار رسالة النجاح
+                    toast.classList.add('show');
+                    
+                    // إخفاء الرسالة بعد 5 ثوانٍ
+                    setTimeout(() => {
+                        toast.classList.remove('show');
+                    }, 5000);
+                    
+                    // إعادة تعيين النموذج
+                    this.reset();
+                });
+            }
+            
+            // 6. تغيير الخدمات النشطة في شريط الخدمات
+            const serviceTags = document.querySelectorAll('.service-tag');
+            
+            serviceTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    serviceTags.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // 7. تتبع حركة التمرير لتحديد القسم النشط
+            const sections = document.querySelectorAll('section');
+            const navLinksAll = document.querySelectorAll('.nav-links a');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinksAll.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+  </body>
+</html>
