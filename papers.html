@@ -131,6 +131,90 @@
             box-shadow: 0 6px 20px rgba(0, 183, 168, 0.4);
         }
         
+        /* إضافة قائمة الهاتف المحمول هنا */
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: var(--primary);
+            z-index: 2000;
+            transition: var(--transition);
+            padding: 2rem;
+            overflow-y: auto;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .mobile-menu-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: block;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .mobile-menu-close {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1500;
+            display: none;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        /* نهاية إضافة قائمة الهاتف المحمول */
+        
         .hero {
             background: linear-gradient(rgba(15, 48, 87, 0.9), rgba(10, 37, 64, 0.95)), url('https://images.unsplash.com/photo-1507699622108-4be3abd695ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
@@ -607,6 +691,14 @@
                 display: none;
             }
             
+            .cta-button {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
             .hero h1 {
                 font-size: 2.3rem;
             }
@@ -632,14 +724,18 @@
         <div class="nav-container">
             <a href="#" class="logo">
                 <div class="logo-icon">
-                    
                     <i class="fas fa-passport"></i>
                 </div>
                 خدمات السفارات
             </a>
             
+            <!-- إضافة زر القائمة للهاتف المحمول -->
+            <button class="mobile-menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
             <nav class="nav-links">
-                <a href="">الرئيسية</a>
+                <a href="#">الرئيسية</a>
                 <a href="#services">خدماتنا</a>
                 <a href="#testimonials">آراء العملاء</a>
                 <a href="#about">نبذة عنا</a>
@@ -648,6 +744,26 @@
             <a href="#contact" class="cta-button">اتصل الآن</a>
         </div>
     </header>
+    
+    <!-- قائمة الهاتف المحمول -->
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h3>خدمات السفارات</h3>
+            <button class="mobile-menu-close" id="closeMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="mobile-menu-links">
+            <a href="#"><i class="fas fa-home"></i> الرئيسية</a>
+            <a href="#services"><i class="fas fa-concierge-bell"></i> خدماتنا</a>
+            <a href="#testimonials"><i class="fas fa-comments"></i> آراء العملاء</a>
+            <a href="#about"><i class="fas fa-info-circle"></i> نبذة عنا</a>
+            <a href="#contact"><i class="fas fa-phone"></i> اتصل الآن</a>
+        </div>
+    </div>
 
     <!-- قسم البطل -->
     <section class="hero">
@@ -1114,6 +1230,11 @@
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth'
                     });
+                    
+                    // إغلاق القائمة عند النقر على رابط في الهاتف
+                    if (window.innerWidth <= 768) {
+                        closeMobileMenu();
+                    }
                 });
             });
             
@@ -1144,6 +1265,35 @@
                 } else {
                     header.style.background = 'linear-gradient(135deg, var(--primary), #0a2540)';
                     header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+                }
+            });
+            
+            // التحكم في قائمة الهاتف المحمول
+            const menuToggle = document.getElementById('menuToggle');
+            const closeMenu = document.getElementById('closeMenu');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('overlay');
+            
+            function openMobileMenu() {
+                mobileMenu.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMobileMenu() {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            
+            menuToggle.addEventListener('click', openMobileMenu);
+            closeMenu.addEventListener('click', closeMobileMenu);
+            overlay.addEventListener('click', closeMobileMenu);
+            
+            // إغلاق القائمة عند تغيير حجم الشاشة إلى كبير
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    closeMobileMenu();
                 }
             });
         });
